@@ -65,7 +65,6 @@ for mfc in max_fcalls:
     print("Max. fcalls = ", mfc)
     print("Cross-validation error = ", cv_err)
     print("Expected value = ", mu)
-    print("Variance = ", sigma2)
     print("Function calls = ", fcalls)
     print("Act/Adm ratio = ", ratio)
     print("")
