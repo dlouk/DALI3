@@ -13,9 +13,14 @@ interpolation rules. The software has been developed during my PhD studies at
 the Institute for Theory of Electromagnetic Fields (TEMF) of TU Darmstadt, under 
 the supervision of Prof. Dr.-Ing. Herbert De Gersem (TU Darmstadt) and 
 Jun.-Prof. Dr.-Ing. Ulrich Römer (TU Braunschweig).
+
+Extension (2019.11.19): An approach to compute Polynomial Chaos Expansions via
+Leja interpolation has been added. In the test folder, an approach based on a 
+a basis transform (hierarchical --> orthogonal) is available.
 --------------------------------------------------------------------------------
 
-The DALI software has been used in the studies presented in the following papers:
+The DALI software has been developed and used for the studies presented in the 
+following papers:
 
 @article{loukrezis2019assessing,
 author  = {Dimitrios Loukrezis and Ulrich  Römer and Herbert  De Gersem},
@@ -46,27 +51,24 @@ pages   = {33--57}
           eid = {arXiv:1904.07709},
 }
 
+@article{loukrezis2019interpolPCE,
+       author = {{Loukrezis}, Dimitrios and {De Gersem}, Herbert},
+        title = "{Adaptive Sparse Polynomial Chaos Expansions via Leja Interpolation}",
+      journal = {arXiv e-prints},
+         year = "2019",
+}
+
 In accordance to ethical scientific practice, we kindly ask to cite at least one 
 of these works, in case you use DALI for your own research.
 --------------------------------------------------------------------------------
 
-Regarding the mathematical background of the algorithm implemented in DALI, we 
-suggest the following papers:
-- "Dimension-Adaptive Tensor-Product Quadrature", Gerstner and Griebel, 
-Computing, 2003
-- "High-Dimensional Adaptive Sparse Polynomial Interpolation and Applications 
-to Parametric PDEs", Chkifa, Cohen, and Schwab, Found. Comput. Math., 2014
-- "Adaptive Leja Sparse Grid Constructions for Stochastic Collocation and 
-High-Dimensional Approximation", Narayan and Jakeman, SIAM Sci. Comput., 2014
---------------------------------------------------------------------------------
-
 The present software and the related examples rely partially on the Chaospy 
-Python toolbox.
-- https://github.com/jonathf/chaospy 
-- "Chaospy: An open source tool for designing methods of uncertainty 
-quantification", Feinberg and Langtangen, J. Comput. Sci., 2015
+Python toolbox (https://github.com/jonathf/chaospy) 
 
-Please note that using DALI in combination with Chaospy implies that the user 
-respects the corresponding copyright notices and license's disclaimers of 
-warranty.  
+The extension to Polynomial Chaos Expansions makes use of the OpenTURNS C++/Python
+library (http://openturns.github.io/openturns/master/index.html).
+
+Please note that using DALI implies that the user respects the corresponding 
+copyright notices, licenses, and disclaimers of warranty of the aforementioned 
+software libraries as well.  
 --------------------------------------------------------------------------------
