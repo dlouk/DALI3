@@ -15,29 +15,18 @@ import sys
 sys.path.append("../dali")
 from dali import dali
 from postprocess import compute_cv_error, compute_moments
-
-
-def qoi_mero(yvec):
-    """Meromorphic function"""
-    gvec_tilde = np.array([1e0, 5*1e-1, 1e-1, 5*1e-2, 1e-2, 5*1e-3, 1e-3,
-                           5*1e-4, 1e-4, 5*1e-5, 1e-5, 5*1e-6, 1e-6, 5*1e-7,
-                           1e-7, 5*1e-8])
-    coeff = 1.0 / (2.0*np.linalg.norm(gvec_tilde, ord=1))
-    gvec = gvec_tilde * coeff
-    dotprod = np.dot(gvec, yvec)
-    return 1.0/(1 + dotprod)
+from mero import qoi_mero
 
 
 # num RVs
 N = 16
 # joint PDF
 jpdf = cp.Iid(cp.Uniform(-1,1), N)
-#jpdf = cp.Iid(cp.Normal(0,1./3.), N)
 # function to be approximated
 f = qoi_mero
 # maximum function calls
 max_fcalls = np.linspace(10, 90, 9).tolist()
-max_fcalls = max_fcalls + np.linspace(100, 500, 5).tolist()
+max_fcalls = max_fcalls + np.linspace(100, 1000, 10).tolist()
 
 # arrays for results storage
 cv_errz = []
@@ -50,7 +39,7 @@ interp_dict = {}
 for mfc in max_fcalls:
     mfc = int(mfc)
     interp_dict = dali(f, N, jpdf, tol=1e-16, max_fcalls=mfc,
-                       interp_dict=interp_dict, verbose=False)
+                       interp_dict=interp_dict, verbose=True)
     # cross-validation error
     cv_err = compute_cv_error(interp_dict, jpdf, f, Nsamples=1000)
     cv_errz.append(cv_err)
