@@ -40,7 +40,7 @@ def dali_pce(func, N, jpdf_cp, jpdf_ot, tol=1e-12, max_fcalls=1000, verbose=True
         fevals_act.append(feval)
 
         # local error indicators
-        local_error_indicators = np.array(coeff_act)**2
+        local_error_indicators = np.array(coeff_act)
 
         # get the OT distribution type of each random variable
         dist_types = []
