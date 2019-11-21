@@ -12,7 +12,6 @@ import numpy as np
 from idx_admissibility import admissible_neighbors
 from leja1d import seq_lj_1d
 from lagrange1d import Hierarchical1d
-#from itertools import izip
 from interpolation import interpolate_single
 
 

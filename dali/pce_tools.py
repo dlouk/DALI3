@@ -3,6 +3,9 @@
 Created on Thu Apr 26 13:51:07 2018
 
 @authors: Armin Galetzka, Dimitris Loukrezis
+
+Functions and classes used for Polynomial Chaos Expansions based on Leja
+interpolation
 """
 
 
@@ -88,7 +91,7 @@ def get_design_matrix(exp,nodes):
 def power_iteration(A, num_simulations, b_k=None):
     if b_k==None:
         b_k = np.random.rand(A.shape[0])
-    for _ in range(num_simulations ):     
+    for _ in range(num_simulations ):
         b_k1 = np.dot(A, b_k)
         b_k1_norm = np.linalg.norm(b_k1)
         b_k = b_k1 / b_k1_norm

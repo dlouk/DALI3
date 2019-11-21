@@ -7,7 +7,7 @@ Created on Fri Oct 18 09:11:33 2019
 Polynomial Chaos Expansions based on Dimension-Adaptive Leja Interpolation
 """
 
-import chaospy as cp
+
 import numpy as np
 import openturns as ot
 import scipy.linalg as scl
