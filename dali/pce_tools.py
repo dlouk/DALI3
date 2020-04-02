@@ -171,18 +171,9 @@ class PCE_Surrogate():
         # create orthogonal univariate bases
         poly_collection = ot.PolynomialFamilyCollection(self.N)
         for i in range(self.N):
-            if dist_types[i] == 'Uniform':
-                poly_collection[i] = ot.OrthogonalUniVariatePolynomialFamily(ot.LegendreFactory())
-            elif dist_types[i] == 'Normal':
-                poly_collection[i] = ot.OrthogonalUniVariatePolynomialFamily(ot.HermiteFactory())
-            elif dist_types[i] == 'Beta':
-                poly_collection[i] = ot.OrthogonalUniVariatePolynomialFamily(ot.JacobiFactory())
-            elif dist_types[i] == 'Gamma':
-                poly_collection[i] = ot.OrthogonalUniVariatePolynomialFamily(ot.LaguerreFactory())
-            else:
-                pdf = jpdf.getDistributionCollection()[i]
-                algo = ot.AdaptiveStieltjesAlgorithm(pdf)
-                poly_collection[i] = ot.StandardDistributionPolynomialFactory(algo)
+            pdf = jpdf.getDistributionCollection()[i]
+            algo = ot.AdaptiveStieltjesAlgorithm(pdf)
+            poly_collection[i] = ot.StandardDistributionPolynomialFactory(algo)
 
         # create multivariate basis
         multivariate_basis = ot.OrthogonalProductPolynomialFactory(
